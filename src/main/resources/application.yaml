@@ -1,0 +1,37 @@
+spring:
+  datasource:
+    url: ${PG_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${PG_USERNAME:postgres}
+    password: ${PG_PASSWORD:postgres}
+    driverClassName: org.postgresql.Driver
+    schema: ${PG_SCHEMA:task}
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: ${PG_SCHEMA:task}
+  flyway:
+    schemas: ${PG_SCHEMA:task}
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+#  kafka:
+#    task-topic: task-events
+#    bootstrap-servers: localhost:9092
+#    consumer:
+#      group-id: task-management-group
+#      auto-offset-reset: earliest
+#      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+#      properties:
+#        spring:
+#          json:
+#            trusted:
+#              packages: com.effective.mobile.tskmngmntsystm.dto
+
+server:
+  servlet:
+    context-path: /api/v1
+  port: 8080
+
+jwt:
+  secret: ${JWT_SECRET:PRh7vkFBAn53ZI2YK5/Y9xaXgGR6sQ3uCUMwO0/x/5Y=}
+  expirationTime: ${JWT_EXPIRATION_TIME:86400000}
