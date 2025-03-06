@@ -6,11 +6,8 @@ import lombok.Data;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@Schema(description = "Сущность клиента")
-public class ClientRequest {
-
-    @Schema(description = "Идентификатор клиента", example = "1")
-    private Long id;
+@Schema(description = "Сущность клиента для добавления")
+public class ClientCreateRequest {
 
     @Schema(description = "Имя клиента", example = "Иван")
     private String name;

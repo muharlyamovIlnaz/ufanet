@@ -1,10 +1,6 @@
-package com.effective.mobile.tskmngmntsystm.util;
+package ru.ufanet.util;
 
-import com.effective.mobile.tskmngmntsystm.enums.Role;
-import com.effective.mobile.tskmngmntsystm.models.TaskEntity;
-import com.effective.mobile.tskmngmntsystm.models.UserEntity;
-import com.effective.mobile.tskmngmntsystm.repository.TaskRepository;
-import com.effective.mobile.tskmngmntsystm.repository.UserRepository;
+
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,21 +8,23 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+import ru.ufanet.enums.Role;
+import ru.ufanet.models.UserEntity;
+import ru.ufanet.repository.UserRepository;
 
 @Component
 @RequiredArgsConstructor
 @Slf4j
 public class CurrentUserUtil {
 
-    private final TaskRepository taskRepository;
     private final UserRepository userRepository;
 
 
     public boolean isMatching(Long id) {
-        TaskEntity currentTask = taskRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Задача с id " + id + " не найдена"));
-        Long performerId = currentTask.getPerformerId();
-        return performerId.equals(getCurrentUserId());
+        UserEntity userEntity = userRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Пользователя с " + id + " нет"));
+        Role userRole = userEntity.getRole();
+        return userRole.equals(getCurrentUserRole());
     }
 
 

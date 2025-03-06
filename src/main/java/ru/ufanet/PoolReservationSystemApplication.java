@@ -1,7 +1,14 @@
 package ru.ufanet;
 
-public class Main {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+
+
+@SpringBootApplication
+@EnableMethodSecurity
+public class PoolReservationSystemApplication {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        SpringApplication.run(PoolReservationSystemApplication.class, args);
     }
 }

@@ -1,6 +1,5 @@
-package com.effective.mobile.tskmngmntsystm.config;
+package ru.ufanet.config;
 
-import com.effective.mobile.tskmngmntsystm.dto.TaskServiceResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -9,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
+import ru.ufanet.dto.PoolReservationServiceResponse;
 
 import java.io.IOException;
 
@@ -26,7 +26,7 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
         log.error("Неавторизованный доступ: {}", authException.getMessage());
 
-        TaskServiceResponse<Object> taskResponse = TaskServiceResponse.notOk(
+        PoolReservationServiceResponse<Object> taskResponse = PoolReservationServiceResponse.notOk(
                 "Доступ запрещен. Получите токен",
                 HttpStatus.UNAUTHORIZED
         );

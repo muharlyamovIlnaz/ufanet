@@ -9,6 +9,7 @@ CREATE TABLE user_info(
     updated_at TIMESTAMP NOT NULL
 );
 
+
 INSERT INTO user_info (name, phone, email, password, role, created_at, updated_at)
 VALUES (
     'Admin',

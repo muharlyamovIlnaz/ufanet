@@ -1,13 +1,13 @@
-package com.effective.mobile.tskmngmntsystm.service;
+package ru.ufanet.service;
 
-import com.effective.mobile.tskmngmntsystm.dto.SignInRequest;
-import com.effective.mobile.tskmngmntsystm.dto.SignUpRequest;
-import com.effective.mobile.tskmngmntsystm.dto.TaskServiceResponse;
 import org.springframework.stereotype.Service;
+import ru.ufanet.dto.PoolReservationServiceResponse;
+import ru.ufanet.dto.SignInRequest;
+import ru.ufanet.dto.SignUpRequest;
 
-@Service
+
 public interface AuthService {
-    TaskServiceResponse<String> signUp(SignUpRequest request);
+    PoolReservationServiceResponse<String> signUp(SignUpRequest request);
 
-    TaskServiceResponse<String> signIn(SignInRequest request);
+    PoolReservationServiceResponse<String> signIn(SignInRequest request);
 }

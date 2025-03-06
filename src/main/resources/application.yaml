@@ -4,28 +4,16 @@ spring:
     username: ${PG_USERNAME:postgres}
     password: ${PG_PASSWORD:postgres}
     driverClassName: org.postgresql.Driver
-    schema: ${PG_SCHEMA:task}
+    schema: ${PG_SCHEMA:pool}
   jpa:
     show-sql: true
     properties:
       hibernate:
-        default_schema: ${PG_SCHEMA:task}
+        default_schema: ${PG_SCHEMA:pool}
   flyway:
-    schemas: ${PG_SCHEMA:task}
+    schemas: ${PG_SCHEMA:pool}
     locations: classpath:db/migration
     baseline-on-migrate: true
-#  kafka:
-#    task-topic: task-events
-#    bootstrap-servers: localhost:9092
-#    consumer:
-#      group-id: task-management-group
-#      auto-offset-reset: earliest
-#      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-#      properties:
-#        spring:
-#          json:
-#            trusted:
-#              packages: com.effective.mobile.tskmngmntsystm.dto
 
 server:
   servlet:

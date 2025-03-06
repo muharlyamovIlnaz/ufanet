@@ -1,4 +1,4 @@
-package com.effective.mobile.tskmngmntsystm.dto;
+package ru.ufanet.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
@@ -25,8 +25,13 @@ public class SignUpRequest {
     @NotBlank(message = "Пароль пользователя не может быть пустыми")
     private String password;
 
-    @Schema(description = "Роль пользователя", example = "ROLE_ADMIN")
-    @Size(min = 3, max = 11, message = "ROLE_USER, ROLE_ADMIN")
-    @NotBlank(message = "Роль пользователя не может быть пустыми")
-    private String role;
+    @Schema(description = "Имя пользователя", example = "Игорь")
+    @Size(min = 3, max = 15, message = "Длина имени пользователя должна быть не менее 3 и не более 15 символов")
+    @NotBlank(message = "Имя пользователя не может быть пустыми")
+    private String name;
+
+    @Schema(description = "Номер телефона", example = "89586234204")
+    @Size(min = 11, max = 11, message = "Некорректный формат номера телефона")
+    @NotBlank(message = "Номер телефона должен состоять из одинадцати чисел")
+    private String phone;
 }

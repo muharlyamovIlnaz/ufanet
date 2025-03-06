@@ -1,6 +1,5 @@
-package com.effective.mobile.tskmngmntsystm.models;
+package ru.ufanet.models;
 
-import com.effective.mobile.tskmngmntsystm.enums.Role;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -15,6 +14,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ru.ufanet.enums.Role;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -29,15 +29,21 @@ public class UserEntity implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "phone")
+    private String phone;
 
     @Column(name = "email")
     private String email;
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.ROLE_USER;
 
     @CreationTimestamp
     @Column(updatable = false)

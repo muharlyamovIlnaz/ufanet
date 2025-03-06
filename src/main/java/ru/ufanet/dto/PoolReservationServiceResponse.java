@@ -1,35 +1,35 @@
-package com.effective.mobile.tskmngmntsystm.dto;
+package ru.ufanet.dto;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
 @Data
-public class TaskServiceResponse<T> {
+public class PoolReservationServiceResponse<T> {
 
     private int status;
     private String message;
     private T body;
 
-    public static <T> TaskServiceResponse<T> ok(String message, T body) {
-        TaskServiceResponse<T> taskServiceResponse = new TaskServiceResponse<>();
-        taskServiceResponse.message = message;
-        taskServiceResponse.body = body;
-        taskServiceResponse.status = HttpStatus.OK.value();
-        return taskServiceResponse;
+    public static <T> PoolReservationServiceResponse<T> ok(String message, T body) {
+        PoolReservationServiceResponse<T> poolReservationServiceResponse = new PoolReservationServiceResponse<>();
+        poolReservationServiceResponse.message = message;
+        poolReservationServiceResponse.body = body;
+        poolReservationServiceResponse.status = HttpStatus.OK.value();
+        return poolReservationServiceResponse;
     }
 
-    public static <T> TaskServiceResponse<T> ok(String message) {
+    public static <T> PoolReservationServiceResponse<T> ok(String message) {
 
-        TaskServiceResponse<T> taskServiceResponse = new TaskServiceResponse<>();
-        taskServiceResponse.message = message;
-        taskServiceResponse.status = HttpStatus.OK.value();
-        return taskServiceResponse;
+        PoolReservationServiceResponse<T> poolReservationServiceResponse = new PoolReservationServiceResponse<>();
+        poolReservationServiceResponse.message = message;
+        poolReservationServiceResponse.status = HttpStatus.OK.value();
+        return poolReservationServiceResponse;
     }
 
-    public static <T> TaskServiceResponse<T> notOk(String message, HttpStatus httpStatus) {
-        TaskServiceResponse<T> taskServiceResponse = new TaskServiceResponse<>();
-        taskServiceResponse.message = message;
-        taskServiceResponse.status = httpStatus.value();
-        return taskServiceResponse;
+    public static <T> PoolReservationServiceResponse<T> notOk(String message, HttpStatus httpStatus) {
+        PoolReservationServiceResponse<T> poolReservationServiceResponse = new PoolReservationServiceResponse<>();
+        poolReservationServiceResponse.message = message;
+        poolReservationServiceResponse.status = httpStatus.value();
+        return poolReservationServiceResponse;
     }
 }

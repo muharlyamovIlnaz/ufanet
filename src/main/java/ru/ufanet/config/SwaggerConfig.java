@@ -1,4 +1,4 @@
-package com.effective.mobile.tskmngmntsystm.config;
+package ru.ufanet.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;

@@ -1,19 +1,26 @@
 package ru.ufanet.service;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import ru.ufanet.dto.ClientResponse;
 import ru.ufanet.dto.PoolReservationServiceResponse;
-import ru.ufanet.dto.SlotRequest;
 import ru.ufanet.dto.SlotResponse;
 
-public interface TimetableService {
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
-    PoolReservationServiceResponse<SlotResponse> getBookedSlots(SlotRequest slotRequest);
+public interface SlotService {
 
-    PoolReservationServiceResponse<SlotResponse> getAvailableSlots(SlotRequest slotRequest);
+    PoolReservationServiceResponse<List<SlotResponse>> getBusySlots(LocalDate data);
 
-    PoolReservationServiceResponse<SlotResponse> createSlot(SlotRequest slotRequest);
+    PoolReservationServiceResponse<List<SlotResponse>> getFreeSlots(LocalDate data);
 
-    PoolReservationServiceResponse<String> deleteSlot(SlotRequest slotRequest);
+    PoolReservationServiceResponse<List<ClientResponse>> getClientsByTime(LocalDateTime dateTime);
+
+    PoolReservationServiceResponse<SlotResponse> createSlotByAdmin(Long clientId, LocalDateTime dateTime);
+
+    PoolReservationServiceResponse<SlotResponse> createSlotByClient(LocalDateTime dateTime);
+
+    PoolReservationServiceResponse<String> deleteSlot(Long slotId);
+
+
 }

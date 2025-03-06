@@ -1,7 +1,6 @@
 package ru.ufanet.filter;
 
-import com.effective.mobile.tskmngmntsystm.exception.CustomException;
-import com.effective.mobile.tskmngmntsystm.service.JwtService;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,6 +14,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
+import ru.ufanet.exception.CustomException;
+import ru.ufanet.service.JwtService;
 
 import java.io.IOException;
 import java.util.List;

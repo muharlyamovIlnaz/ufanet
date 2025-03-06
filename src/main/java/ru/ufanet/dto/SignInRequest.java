@@ -1,4 +1,4 @@
-package com.effective.mobile.tskmngmntsystm.dto;
+package ru.ufanet.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;

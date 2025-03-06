@@ -1,8 +1,5 @@
-package com.effective.mobile.tskmngmntsystm.controller;
+package ru.ufanet.controller;
 
-import com.effective.mobile.tskmngmntsystm.dto.SignInRequest;
-import com.effective.mobile.tskmngmntsystm.dto.SignUpRequest;
-import com.effective.mobile.tskmngmntsystm.dto.TaskServiceResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -13,10 +10,13 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.ufanet.dto.PoolReservationServiceResponse;
+import ru.ufanet.dto.SignInRequest;
+import ru.ufanet.dto.SignUpRequest;
 
 
-@RequestMapping("/auth")
-@Tag(name = "Аутентификация")
+@RequestMapping("/pool/auth")
+@Tag(name = "Авторизация и аутентификация")
 public interface AuthApi {
 
     @Operation(
@@ -30,23 +30,13 @@ public interface AuthApi {
                     content = {
                             @Content(
                                     mediaType = "application/json",
-                                    schema = @Schema(implementation = TaskServiceResponse.class)
-                            )
-                    }
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description = "Внутренняя ошибка сервера",
-                    content = {
-                            @Content(
-                                    mediaType = "application/json",
-                                    schema = @Schema(implementation = String.class)
+                                    schema = @Schema(implementation = PoolReservationServiceResponse.class)
                             )
                     }
             )
     })
     @PostMapping("/sign-up")
-    TaskServiceResponse<String> signUp(@RequestBody @Valid SignUpRequest request);
+    PoolReservationServiceResponse<String> signUp(@RequestBody @Valid SignUpRequest request);
 
 
     @Operation(
@@ -60,23 +50,13 @@ public interface AuthApi {
                     content = {
                             @Content(
                                     mediaType = "application/json",
-                                    schema = @Schema(implementation = TaskServiceResponse.class)
-                            )
-                    }
-            ),
-            @ApiResponse(
-                    responseCode = "500",
-                    description = "Внутренняя ошибка сервера",
-                    content = {
-                            @Content(
-                                    mediaType = "application/json",
-                                    schema = @Schema(implementation = String.class)
+                                    schema = @Schema(implementation = PoolReservationServiceResponse.class)
                             )
                     }
             )
     })
     @PostMapping("/sign-in")
-    TaskServiceResponse<String> signIn(@RequestBody @Valid SignInRequest request);
+    PoolReservationServiceResponse<String> signIn(@RequestBody @Valid SignInRequest request);
 
 
 }

@@ -1,4 +1,4 @@
-package com.effective.mobile.tskmngmntsystm.enums;
+package ru.ufanet.enums;
 
 public enum Role {
     ROLE_ADMIN,

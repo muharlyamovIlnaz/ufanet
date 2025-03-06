@@ -1,0 +1,12 @@
+spring:
+  h2:
+    console.enabled: true
+  flyway:
+    schemas: pool
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  datasource:
+    url: jdbc:h2:mem:testdb;DATABASE_TO_LOWER=TRUE;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    database-platform: org.hibernate.dialect.H2Dialect

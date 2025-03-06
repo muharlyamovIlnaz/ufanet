@@ -1,4 +1,4 @@
-package com.effective.mobile.tskmngmntsystm.exception;
+package ru.ufanet.exception;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
